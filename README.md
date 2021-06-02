@@ -1,2 +1,2 @@
-# Aurange
-"# yourazon" 
+# yourazon
+An amazon clone.
