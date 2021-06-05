@@ -1,3 +1,4 @@
+import axios from "axios";
 import Image from "next/image";
 import Header from "../components/Header";
 import CheckoutProduct from "../components/CheckoutProduct";
@@ -6,7 +7,7 @@ import { useSelector } from "react-redux";
 import { selectItems, selectTotal } from "../slices/basketSlice";
 import { useSession } from "next-auth/client";
 import { loadStripe } from "@stripe/stripe-js";
-import axios from "axios";
+
 const stripePromise = loadStripe(process.env.stripe_public_key);
 
 function Checkout() {
@@ -25,7 +26,7 @@ function Checkout() {
     const result = await stripe.redirectToCheckout({
       sessionId: checkoutSession.data.id,
     });
-
+    console.log(checkoutSession.data);
     if (result.error) {
       alert(result.error.message);
     }

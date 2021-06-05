@@ -18,9 +18,9 @@ export default async (req, res) => {
 
   const session = await stripe.checkout.sessions.create({
     payment_method_types: ["card"],
-    shipping_rates: ["shr_1IyTp2SE42elsWVtBWvNb4pd"],
+    shipping_rates: ["shr_1IyWS5HFVhH7q6l7b7yUV7Za"],
     shipping_address_collection: {
-      allowed_countries: ["US", "GB", "CA"],
+      allowed_countries: ["GB", "US", "CA"],
     },
     line_items: transformedItems,
     mode: "payment",
